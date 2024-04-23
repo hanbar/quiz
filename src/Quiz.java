@@ -2,30 +2,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Quiz {
-    private List<Question> questions;
+    private final List<Question> questions;
     private int totalPoints;
 
     public Quiz(List<Question> questions) {
         this.questions = questions;
         this.totalPoints = 0;
-    }
-
-    public void start() {
-        Scanner scanner = new Scanner(System.in);
-        for (Question question : questions) {
-            question.display();
-            System.out.print("Your answer: ");
-            String answer = scanner.nextLine().trim();
-            if(question.validateAnswer(answer)) {
-                this.countCorrectAnswer();
-            }
-            question.revealAnswer();
-        }
-        System.out.println("Quiz ended. You had: " + this.totalPoints + "/" + this.questions.size() + " answers correct");
-    }
-
-    private void countCorrectAnswer() {
-        this.totalPoints++;
     }
 
     public static void main(String[] args) {
@@ -55,5 +37,23 @@ public class Quiz {
 
         Quiz quiz = new Quiz(questions);
         quiz.start();
+    }
+
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+        for (Question question : questions) {
+            question.display();
+            System.out.print("Your answer: ");
+            String answer = scanner.nextLine().trim();
+            if (question.validateAnswer(answer)) {
+                this.countCorrectAnswer();
+            }
+            question.revealAnswer();
+        }
+        System.out.println("Quiz ended. You had: " + this.totalPoints + "/" + this.questions.size() + " answers correct");
+    }
+
+    private void countCorrectAnswer() {
+        this.totalPoints++;
     }
 }

@@ -1,11 +1,9 @@
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Question {
-    private String text;
-    private List<Answer> answers;
-    private boolean isMultiChoice;
+    private final String text;
+    private final List<Answer> answers;
+    private final boolean isMultiChoice;
 
     public Question(String text, List<Answer> answers, boolean isMultiChoice) {
         this.text = text;
