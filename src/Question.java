@@ -3,17 +3,27 @@ import java.util.List;
 public class Question {
     private final String text;
     private final List<Answer> answers;
-    private final boolean isMultiChoice;
 
-    public Question(String text, List<Answer> answers, boolean isMultiChoice) {
+    public Question(String text, List<Answer> answers) {
         this.text = text;
         this.answers = answers;
-        this.isMultiChoice = isMultiChoice;
+    }
+
+    public boolean isMultiChoice() {
+        int correctCount = 0;
+
+        for (Answer answer : answers) {
+            if (answer.isCorrect()) {
+                correctCount++;
+            }
+        }
+
+        return correctCount > 1;
     }
 
     public void display() {
         System.out.println();
-        System.out.println(this.text + " " + (this.isMultiChoice ? "(Question with multiple answers)" : "(Question with single answer)"));
+        System.out.println(this.text + " " + (this.isMultiChoice() ? "(Question with multiple answers)" : "(Question with single answer)"));
 
         for (int i = 0; i < this.answers.size(); i++) {
             System.out.println((i + 1) + ". " + this.answers.get(i).getText());

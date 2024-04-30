@@ -15,20 +15,20 @@ public class Quiz {
                 new Answer("Berlin", false),
                 new Answer("Rome", false),
                 new Answer("Madrid", false));
-        Question one = new Question("What is the capital of France?", qOneAnswers, false);
+        Question one = new Question("What is the capital of France?", qOneAnswers);
 
         List<Answer> qTwoAnswers = List.of(new Answer("2", true),
                 new Answer("3", true),
                 new Answer("4", false),
                 new Answer("5", true),
                 new Answer("6", false));
-        Question two = new Question("Which of the following are prime numbers?", qTwoAnswers, true);
+        Question two = new Question("Which of the following are prime numbers?", qTwoAnswers);
 
         List<Answer> qThreeAnswers = List.of(new Answer("Jupiter", true),
                 new Answer("Mars", false),
                 new Answer("Earth", false),
                 new Answer("Saturn", false));
-        Question three = new Question("What is the largest planet in our solar system?", qThreeAnswers, false);
+        Question three = new Question("What is the largest planet in our solar system?", qThreeAnswers);
 
         List<Question> questions = List.of(one, two, three);
 
